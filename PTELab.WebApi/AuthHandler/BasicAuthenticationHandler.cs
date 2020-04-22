@@ -83,7 +83,7 @@ namespace PTELab.WebApi.AuthHandler
                 var password = decodedCredentials.Substring(delimiterIndex + 1);
 
                 // todo:: validate user and password in db or identity
-                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || (!username.Equals("admin") && !password.Equals("admin")))
+                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || !(username.Equals("admin") && password.Equals("admin")))
                 {
                     const string missingDelimiterMessage = "Invalid credentials.";
                     Logger.LogInformation(missingDelimiterMessage);
